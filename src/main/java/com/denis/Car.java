@@ -12,10 +12,9 @@ public class Car implements Battery, CarDriver, Tanker {
     private DriverDoc driverDoc;
 
     boolean isMove = false;
-    boolean isRefuel = false;
-    boolean isOpen = false;
+    boolean isOpenLid = false;
 
-    public Car(){
+    public Car(Transmission mechanical, String opel, String ав2536ВП, String s, DriverDoc.Category b){
 
     }
 
@@ -38,9 +37,10 @@ public class Car implements Battery, CarDriver, Tanker {
 
     @Override
     public void move() {
-        if (isRefuel) {
+        if (isOpenLid) {
             System.out.println("Can`t go");
         } else {
+            isMove = true;
             System.out.println("Can go");
         }
     }
@@ -53,10 +53,10 @@ public class Car implements Battery, CarDriver, Tanker {
 
     @Override
     public void refuel() {
-        if(!isRefuel){
-            System.out.println("Need fot refuel");
+        if(!isOpenLid){
+            System.out.println("Can`t refuel");
         } else {
-            System.out.println("Do not need this action");
+            System.out.println("Refueling");
         }
     }
 
@@ -64,7 +64,8 @@ public class Car implements Battery, CarDriver, Tanker {
         if (isMove) {
             System.out.println("You can`t refuel");
         } else {
-            System.out.println("You can");
+            isOpenLid = true;
+            System.out.println("You can refuel");
         }
     }
 
@@ -72,7 +73,7 @@ public class Car implements Battery, CarDriver, Tanker {
         if (isMove) {
             System.out.println("You can`t close");
         } else {
-            isOpen = true;
+            isOpenLid = false;
             System.out.println("Is close");
         }
     }
