@@ -5,15 +5,25 @@ public class Car {
     private String model;
     private String number;
     private Transmission transmission;
+    private DriverDoc driverDoc;
 
     public Car(){
 
     }
 
-    public Car(String model, String number, Transmission transmission) {
+    public Car(String model, String number, Transmission transmission, DriverDoc driverDoc) {
         this.model = model;
         this.number = number;
         this.transmission = transmission;
+        this.driverDoc = driverDoc;
+    }
+
+    public DriverDoc getDriverDoc() {
+        return driverDoc;
+    }
+
+    public void setDriverDoc(DriverDoc driverDoc) {
+        this.driverDoc = driverDoc;
     }
 
     public String getModel() {
